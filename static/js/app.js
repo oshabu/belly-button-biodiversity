@@ -4,7 +4,7 @@ function init() {
     let selector = d3.select('#selDataset');
 
     // Use the list of sample names to populate the select options
-    d3.json('static/data/samples.json').then((data) => {
+    d3.json('static/js/samples.json').then((data) => {
         let sampleNames = data.names;
         sampleNames.forEach((name) => {
             selector
@@ -33,7 +33,7 @@ function optionChanged(newSample) {
 function buildMetadata(sample) {
     /* Matches metadata for the parameter sample and appends the data to the
        demographic panel */
-    d3.json('static/data/samples.json').then((data) => {
+    d3.json('static/js/samples.json').then((data) => {
         let metadata = data.metadata;
         // Filter the data for the object with the desired sample number. Note
         // that the id on metadata objects is a integer, so sample will be
@@ -57,7 +57,7 @@ function buildMetadata(sample) {
 function buildCharts(sample) {
     /* Builds bar, bubble, and gauge charts for currently selected sample id */
     // 2. Use d3.json to load and retrieve the samples.json file
-    d3.json('static/data/samples.json').then((data) => {
+    d3.json('static/js/samples.json').then((data) => {
         // 3. Create a variable that holds the samples array.
         let samples = data.samples;
         // 4. Create a variable that filters the samples for the object with the
